@@ -1,0 +1,1110 @@
+/*
+Theme Name: Theme Tranbip
+Theme URI: http://www.trendingchile.cl/
+Author: Eduardo palma L.
+Author URI: http://www.trendingchile.cl/
+Description: Tema Diseñado y Desarrollado por Eduardo Palma López
+Version: 1.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: tranbip
+*/
+
+@import "variables";
+@import 'fonts';
+@import 'queries';
+@import 'utilidades';
+//Fonts
+@import url('https://fonts.googleapis.com/css?family=Muli:300,400,700,800,900');
+// cierre fonts
+// ESTILOS GENERALES *******************************************************************
+//***********************************************************************************
+* {
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+    -ms-font-smoothing: antialiased;
+    -o-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Muli', Helvetica, Arial, sans-serif!important;
+    box-sizing: border-box;
+    background-color: white;
+}
+h3 {}
+
+h4 {
+    font-size: 1em;
+}
+
+p {
+    font-size: 14px;
+}
+
+// ESTILOS REUTILIZABLES *******************************************************************
+//***********************************************************************************
+.center-grilla {
+    max-width: $grilla;
+    margin: 0 auto;
+    //    overflow: hidden;
+}
+
+// BUTTON DOWN *****************
+//******************************
+a.down {
+    cursor: pointer;
+    text-decoration: none;
+    z-index: 4;
+    position: absolute;
+//    top: 47%;
+    z-index: 3;
+    right: 46%;
+    left: 46%;
+    /*animation*/
+    animation: down-arrow 1.5s ease-out 0s infinite;
+    .icon-down {
+        cursor: pointer;
+        font-size: 4em;
+        color: white;
+        transition: all 1s ease;
+        &:hover {
+            color: $color-secondary;
+        }
+    }
+    @include media(lg) {
+        bottom: 37%;
+        right: 48%;
+        left: 48%;
+    }
+    @include media(md) {
+        bottom: 23%;
+        right: 45%;
+        left: 45%;
+    }
+    @include media(wvga) {
+        top: 87%;
+        right: 40%;
+        left: 40%;
+    }
+    @include media(xss) {
+        bottom: 0%;
+//        top: 207%;
+        right: 40%;
+        left: 40%;
+        display: none;
+    }
+}
+
+@keyframes down-arrow {
+    0% {
+        /*                    @include transform(translateY(-1px));*/
+        transform: translate(0px, 0px);
+    }
+    50% {
+        /*                    @include transform(translateY(15px));*/
+        transform: translate(0px, -15px);
+    }
+    100% {
+        /*                     @include transform(translateY(0px));*/
+        transform: translate(0px, 0px);
+    }
+}
+
+// CIERRE BUTTON DOWN **********
+//******************************
+// SOCIAL BUTTON ***************
+//******************************
+a.social {
+    cursor: pointer;
+    text-decoration: none;
+    .icon-social {
+        cursor: pointer;
+        font-size: 1.3rem;
+        color: white;
+        transition: all 0.5s ease;
+        &:hover {
+            color: $color-primary;
+        }
+    }
+}
+
+// CIERRE SOCIAL BUTTON ********
+//******************************
+.campos-text {
+    color: white;
+    font-weight: 800;
+    font-size: 1.2em;
+}
+
+.btn-close {
+    position: absolute;
+    top: 6px;
+    right: 6px;
+    cursor: pointer;
+    width: 29px;
+    border: 2px solid #bbbbbb;
+    border-radius: 192px;
+    padding: 4px 1px!important;
+    background-color: #ffffff;
+    transition: all 0.7s ease;
+    &:hover {
+        background-color: #d2d2d2;
+    }
+}
+
+.button {
+    background-color: $color-primary;
+    //    border: 1px solid darken( $color-primary, 20%);
+    color: white;
+    width: 181px;
+    padding: 6px 4px;
+    text-align: center;
+    display: block;
+    text-transform: capitalize;
+    text-decoration: none;
+    font-size: 1.1em;
+    font-weight: 700;
+    transition: all 0.7s ease;
+    cursor: pointer;
+    &:hover,
+    &:active {
+        background-color: darken( $color-primary, 20%);
+    }
+}
+
+.line {
+    height: 4px;
+    width: 100px;
+    background-color: $color-primary;
+}
+
+.block {
+    height: 189px;
+    transition: all 0.7s ease;
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    &:hover {
+        transform: translateY(-15%);
+        box-shadow: 0 19px 19px rgba(0, 0, 0, 0.3);
+    }
+    @include media(xss) {
+        height: 200px;
+    }
+    @include media(xs) {
+        height: 200px;
+    }
+}
+
+.block-gray {
+    @extend .block;
+    background-color: $bkg-color-box-a;
+}
+
+.block-white {
+    @extend .block;
+    background-color: $bkg-color-box-b;
+}
+
+.border-top {
+    border-top: 3px solid $color-primary;
+}
+
+//grid
+$numero-columnas: 6;
+$grilla: 768px;
+[class*='col-'] {
+    float: left;
+    padding: 0.8em;
+    width: 100%;
+}
+
+@mixin grilla {
+    @media only screen and(min-width: #{$grilla}) {
+        @content;
+    }
+}
+
+@include grilla {
+    @for $i from 1 through $numero-columnas {
+        .col-#{$i} {
+            width: 100% / $numero-columnas * $i;
+        }
+    }
+}
+
+//CIERRE grid
+// PERSONALIZACION SLIDER ***********************************************************
+//***********************************************************************************
+.owl-carousel {
+    overflow: -webkit-paged-y;
+}
+
+.owl-carousel .owl-dots.disabled,
+.owl-carousel .owl-nav.disabled {
+    display: block;
+}
+
+.owl-carousel .owl-dot,
+.owl-carousel .owl-nav .owl-next,
+.owl-carousel .owl-nav .owl-prev {
+    padding: 0 2%;
+}
+
+div.owl-next {
+    position: absolute;
+    right: 0%;
+    top: 44%;
+    bottom: 44%;
+    //    transform: translate(44%, -44%);
+    font-size: 0em;
+    &:before {
+        cursor: pointer;
+        font-family: "icomoon";
+        font-size: 3rem;
+        display: inline-block;
+        content: '\e905';
+        color: white;
+        background-color: rgba(255, 255, 255, 0.2);
+        border: 0px solid transparent;
+        border-radius: 50px;
+        transition: all 0.3s ease;
+    }
+    &:hover {
+        &:before {
+            background-color: rgba(255, 255, 255, 0.5);
+        }
+    }
+}
+
+div.owl-prev {
+    @extend div.owl-next;
+    left: 0%;
+    top: 44%;
+    &:before {
+        content: '\e904';
+    }
+}
+
+// CIERRE PERSONALIZACION SLIDER ***********************************************************
+//***********************************************************************************
+.center-element {
+    margin: 0 auto;
+    display: block;
+}
+
+.color-one {
+    background-color: $color-slider-1;
+}
+
+.color-two {
+    background-color: $color-slider-2;
+}
+
+.color-three {
+    background-color: $color-slider-3;
+}
+
+.bajada {
+    position: absolute;
+    bottom: 30%;
+    right: 49%;
+    left: 49%;
+    transform: translate(-49%, -49%);
+}
+
+.item {
+    height: 436px;
+    @include media(xss) {
+        text-align: center;
+    }
+}
+
+// ESTRUCTURA WEB *******************************************************************
+//***********************************************************************************
+//HEADER
+nav {
+    z-index: 2;
+    position: relative;
+    display: block;
+    h1.logo-principal {
+        a {
+            img {
+                width: 100%;
+                max-width: 200px;
+                margin-left: 40px;
+            }
+        }
+    }
+}
+
+main {
+    margin-top: -85px;
+    @include media(xss) {
+        margin-top: 0px;
+    }
+    @include media(wvga){
+        margin-top: -85px;
+    }
+    .owl-carousel {
+        position: relative;
+        @include media(xss) {
+            height: 380px;
+        }
+        .item {
+            .one-slider {
+                display: inline-block;
+                width: 32%;
+                vertical-align: top;
+                img {
+                    margin-top: 81px;
+                }
+                @include media(sm) {
+                    width: 40%;
+                }
+                @include media(xs) {
+                    width: 30%;
+                }
+                @include media(xss) {
+                    display: none;
+                }
+            }
+            .two-slider {
+                display: inline-block;
+                width: 32%;
+                vertical-align: top;
+                margin-top: 17px;
+                img {}
+                h3 {
+                    text-align: center;
+                    color: white;
+                    font-size: 1em;
+                    margin-top: 22px;
+                    font-weight: 600;
+                }
+                @include media(sm) {
+                    width: 49%;
+                }
+                @include media(xs) {
+                    width: 49%;
+                }
+                @include media(xss) {
+                    width: 90%;
+                    margin: 0 auto;
+                    margin-top: 20px;
+                }
+            }
+            .three-slider {
+                display: inline-block;
+                width: 35%;
+                text-align: right;
+                img {}
+                @include media(sm) {
+                    display: none;
+                }
+                @include media(xs) {
+                    display: none;
+                }
+                @include media(xss) {
+                    display: none;
+                }
+            }
+        }
+    }
+    
+        // textos forzados artistas *******************************************************************
+        //*****************************************************************
+    .ajuste-top{
+        @include media(xss) {
+            margin-top: 20px;
+        }
+        @include media(md) {
+            margin-top: 5px;
+        }
+        @include media(lg) {
+            margin-top: 10px;
+        }
+    }
+    
+    section.plugin {
+        position: relative;
+        figure.parche {
+            display: block;
+//            max-width: 75%;
+//            @include media(sm) {
+//                max-width: 48%;
+//            }
+//            @include media(xs) {
+//                max-width: 98%;
+//            }
+//            &.ajuste-parche{
+//                @include media(md) {
+//                    max-width: 82%;
+//                }
+//                @include media(lg) {
+//                    max-width: 82%;
+//                }
+//
+//            }
+            div.left {
+                display: inline-block;
+                width: 50%;
+                text-align: left;
+//                &.ajuste-left{
+//                    @include media(md) {
+//                        width: 57%; 
+//                    }
+//                    @include media(lg) {
+//                        width: 57%; 
+//                    }
+                    
+                }
+                p.video {
+                    font-size: 1em;
+                    font-weight: 800;
+                    color: white;
+                    display: inline-block;
+                    vertical-align: super;
+                    text-transform: uppercase;
+                    @include media(sm) {
+                        font-size: 0.8em;
+                    }
+                }
+            }
+            div.right {
+                display: inline-block;
+                width: 50%;
+                text-align: right;
+                img {
+                    display: inline-block;
+                    width: 100%;
+                    max-width: 293px;
+                    vertical-align: sub;
+                    @include media(sm) {
+                        width: 45%;
+                    }
+                    @include media(xs) {
+                        width: 65%;
+                        max-width: 230px;
+                    }
+                    @include media(wvga) {
+                        width: 115%;
+                        max-width: 230px;
+                        vertical-align: super;
+                    }
+                    @include media(xss) {
+                        width: 125%;
+                        max-width: 480px;
+                        vertical-align: super;
+                    }
+                    &.ajuste-img-three{
+                        @include media(xss) {
+                            width: 120%;
+                        }
+                        @include media(wvga) {
+                            width: 123%;
+                        }
+                        @include media(md) {
+                            width: 153%;
+                        }
+                        @include media(lg) {
+                            width: 153%;
+                        }
+
+                    }
+                }
+            }
+            .description {
+                display: inline-block;
+                width: 60%;
+                font-weight: 700;
+                @include media(sm) {
+                    width: 122%;
+                    vertical-align: middle;
+                }
+                @include media(xss) {
+                    width: 54%;
+                }
+                strong {
+                    //                    text-transform: uppercase;
+                }
+                p {
+                    color: white;
+                }
+                p {}
+            }
+            .select {
+                display: inline-block;
+                width: 24%;
+                vertical-align: text-top;
+                text-align: right;
+                p {
+                    color: white;
+                    text-transform: capitalize;
+                    font-weight: 600;
+                }
+            }
+        }
+        
+//        div.one {
+//            position: absolute;
+//            z-index: 3;
+//            top: 366px;
+//            left: 18px;
+//            
+//            @include media(sm) {
+//                top: 313px;
+//                
+//            }
+//            @include media(xs) {
+//                top: 280px;
+//                
+//            }
+//            @include media(wvga) {
+//                top: 350px;
+//            }
+//            @include media(xss) {
+//                top: 310px;
+//            }
+//       
+//        }
+//        div.two {
+//            position: absolute;
+//            z-index: 3;
+//            top: 366px;
+//            left: 400px;
+//
+//            @include media(sm) {
+//                top: 313px;
+//                left: 340px;
+//            }
+//            @include media(xs) {
+//                top: 680px;
+//               
+//            }
+//            @include media(wvga) {
+//                top: 735px;
+//                left: 18px;
+//            }
+//            @include media(xss) {
+//                top: 666px;
+//                left: 18px;
+//            }
+//
+//        }
+//        div.three {
+//            position: absolute;
+//            z-index: 3;
+//            top: 366px;
+//            left: 780px;
+//
+//            @include media(sm) {
+//                top: 313px;
+//                left: 660px;
+//            }
+//            @include media(xs) {
+//                top: 480px;
+//
+//            }
+//            @include media(wvga) {
+//                top: 1120px;
+//                left: 18px;
+//
+//            }
+//            @include media(xss) {
+//                top: 1018px;
+//                left: 18px;
+//            }
+//
+//        }
+//        div.four {
+//            position: absolute;
+//            z-index: 3;
+//            top: 780px;
+//            left: 18px;
+//
+//            @include media(sm) {
+//                top: 660px;
+//                left: 18px;
+//            }
+//            @include media(xs) {
+//                top: 1480px;
+//                left: 18px;
+//            }
+//            @include media(xss) {
+//                top: 1350px;
+//                left: 18px;
+//            }
+//
+//        }
+//        div.five {
+//            position: absolute;
+//            z-index: 3;
+//            top: 780px;
+//            left: 400px;
+//
+//            @include media(sm) {
+//                top: 660px;
+//                left: 340px;
+//            }
+//            @include media(xs) {
+//                top: 1890px;
+//                left: 18px;
+//            }
+//            @include media(xss) {
+//                top: 1730px;
+//                left: 18px;
+//            }
+//
+//        }
+//        div.six {
+//            position: absolute;
+//            z-index: 3;
+//            top: 780px;
+//            left: 780px;
+//
+//            @include media(sm) {
+//                top: 660px;
+//                left: 670px;
+//            }
+//            @include media(xs) {
+//                top: 2290px;
+//                left: 18px;
+//            }
+//            @include media(xss) {
+//                top: 2100px;
+//                left: 18px;
+//            }
+//        }
+//            div.seven {
+//                position: absolute;
+//                z-index: 3;
+//                top: 1200px;
+//                left: 18px;
+//
+//                @include media(sm) {
+//                    top: 1040px;
+//                    left: 18px;
+//                }
+//                @include media(xs) {
+//                    top: 2180px;
+//                    left: 18px;
+//                }
+//                @include media(wvga) {
+//                    top: 2700px;
+//                    left: 18px;
+//                }
+//                @include media(xss) {
+//                    top: 2480px;
+//                    left: 18px;
+//                }
+//
+//            }
+//        div.eight {
+//            position: absolute;
+//            z-index: 3;
+//            top: 1200px;
+//            left: 398px;
+//
+//            @include media(sm) {
+//                top: 1040px;
+//                left: 340px;
+//            }
+//            @include media(xs) {
+//                top: 480px;
+//                left: 18px;
+//            }
+//            @include media(wvga) {
+//                top: 3110px;
+//                left: 18px;
+//            }
+//            @include media(xss) {
+//                top: 2860px;
+//                left: 18px;
+//            }
+//
+//        }
+//        div.nine {
+//            position: absolute;
+//            z-index: 3;
+//            top: 1200px;
+//            left: 780px;
+//
+//            @include media(sm) {
+//                top: 1040px;
+//                left: 660px;
+//            }
+//            @include media(xs) {
+//                top: 480px;
+//                left: 18px;
+//            }
+//            @include media(wvga) {
+//                top: 3510px;
+//                left: 18px;
+//            }
+//            @include media(xss) {
+//                top: 3225px;
+//                left: 18px;
+//            }
+//
+//        }
+//        div.ten {
+//            position: absolute;
+//            z-index: 3;
+//            top: 1630px;
+//            left: 398px;
+//
+//            @include media(sm) {
+//                top: 1420px;
+//                left: 338px;
+//            }
+//            @include media(xs) {
+//                top: 3310px;
+//                left: 18px;
+//            }
+//            @include media(wvga) {
+//                top: 3930px;
+//                left: 18px;
+//            }
+//            @include media(xss) {
+//                top: 3610px;
+//                left: 18px;
+//            }
+//
+//        }
+        // CIERRE textos forzados artistas *******************************************************************
+        //*****************************************************************
+        margin-top: -85px;
+        @include media(md) {
+            margin-top: -15px;
+        }
+        @include media(xs) {
+            margin-top: -15px;
+        }
+        @include media(xss) {
+            margin-top: -15px;
+        }
+    }
+    section.ganadores {
+        background-color: $color-secondary;
+        article.title {
+            display: inline-block;
+            width: 49%;
+            text-align: left;
+            figure {
+                img {
+                    width: 100%;
+                    max-width: 340px;
+                    padding: 8px;
+                }
+            }
+            @include media(xss) {
+                width: 100%;
+            }
+        }
+        article {
+            display: inline-block;
+            width: 49%;
+            text-align: right;
+            vertical-align: middle;
+            @include media(xss) {
+                width: 100%;
+            }
+            ul.btn {
+                @include media(xss) {
+                    margin-top: 20px;
+                    text-align: center;
+                }
+                li {
+                    display: inline-block;
+                    &:first-child {
+                        margin-right: 10px;
+                        @include media(xs) {
+                            margin-right: 0px;
+                            margin-bottom: 15px;
+                        }
+                        @include media(xss) {
+                            margin-right: 0px;
+                            margin-bottom: 25px;
+                        }
+                    }
+                    a {}
+                }
+            }
+        }
+        section.lista-ganadores {
+            margin: 0 auto;
+            width: 75%;
+            text-align: left;
+            color: white;
+            font-weight: 600;
+            padding: 43px 0px;
+            padding-left: 52px;
+            ul {
+                font-size: 1em;
+                font-weight: 500;
+                display: inline-block;
+                width: 100%;
+                li {
+                    width: 49%;
+                    display: inline-block;
+                    margin: 8px 0px;
+                    @include media(xss) {
+                        width: 100%;
+                    }
+                }
+            }
+            @include media(xss) {
+                text-align: center;
+            }
+        }
+    }
+}
+
+footer {
+    background-color: $color-primary;
+    height: 80px;
+    font-size: 0.9em;
+    font-weight: 600;
+    figure {
+        width: 21%;
+        display: inline-block;
+        img {
+            width: 100%;
+            max-width: 150px;
+            margin-left: 40px;
+            @include media(xs) {
+                max-width: 100px;
+            }
+        }
+        @include media(xss) {
+            width: 100%;
+        }
+    }
+    article {
+        font-size: 1em;
+        width: 53%;
+        display: inline-block;
+        vertical-align: top;
+        text-align: center;
+        color: $color-secondary;
+        padding-top: 24px;
+        p {
+            display: inline-block;
+        }
+        a {
+            margin-left: 5px;
+            color: $color-secondary;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 0.9em;
+            &:hover {}
+        }
+        @include media(xss) {
+            width: 100%;
+        }
+    }
+    article.social {
+        width: 20%;
+        display: inline-block;
+        vertical-align: top;
+        padding-top: 22px;
+        p {
+            display: inline-block;
+            margin-bottom: 5px;
+            text-align: center;
+        }
+        ul {
+            vertical-align: bottom;
+            display: inline-block;
+            li {
+                display: inline-block;
+                a {
+                    font-size: 0.9em;
+                    &:hover {}
+                }
+            }
+        }
+        @include media(xss) {
+            width: 100%;
+        }
+    }
+}
+
+// CIERRE ESTRUCTURA WEB *******************************************************************
+//***********************************************************************************
+// ESTILOS PLUGIN TOTAL POLL ***********************************************************************************
+#totalpoll-id-04bc89a1778238dc8319509fa5b92d48.totalpoll-poll-container .totalpoll-choices-row .totalpoll-choice-container .totalpoll-choice-media a img {
+    max-width: 100%;
+    padding: 0.3em!important;
+    display: block;
+    margin: 0 auto;
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+}
+
+#totalpoll-id-04bc89a1778238dc8319509fa5b92d48.totalpoll-poll-container .totalpoll-choices-row .totalpoll-choice-container .totalpoll-choice-label {
+    padding: 0.95em;
+    border: 0px solid transparent!important;
+    margin-top: -1px;
+    background: $color-primary;
+    text-align: center;
+    color: inherit;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+    cursor: pointer;
+    display: block;
+    padding: 0;
+}
+
+#totalpoll-id-04bc89a1778238dc8319509fa5b92d48.totalpoll-poll-container .totalpoll-view-results .totalpoll-choice-label .totalpoll-result-text {
+    font-size: 0.9em !important;
+    font-weight: normal;
+    font-weight: 900;
+    background-image: url(../assets/img/bkg-bip.jpg);
+    //    background-color: blue;
+    padding: 10px 21px!important;
+    position: absolute!important;
+    top: -43px!important;
+    left: -12px!important;
+}
+
+.totalpoll-result-text {
+    font-size: 3em !important;
+    font-weight: normal;
+    font-weight: 900;
+    //    background-image: url(assets/img/bkg-bip.jpg)!important;
+    //    background-color: blue!important;
+    //    padding: 5px 10px!important;
+    position: absolute!important;
+    top: -43px!important;
+    left: -12px!important;
+    color: white!important;
+    //    background-repeat: no-repeat, no-repeat;
+    //    background-position: 56% 5px;
+    background-color: $color-secondary!important;
+    width: 56px;
+    height: 36px;
+    &:after {
+        content: "votos";
+        color: white;
+        font-weight: bold;
+        margin-right: 5px;
+        display: block;
+    }
+    &:before {
+        font-family: 'TSInfo';
+        content: "!";
+        color: white;
+        font-weight: bold;
+        position: absolute;
+        display: block;
+        font-size: 3em;
+        right: -1px;
+        bottom: -3px;
+        transform: rotate(11deg);
+        top: -10px;
+        color: orange;
+    }
+}
+
+.totalpoll-choice-label {
+    position: relative;
+}
+
+.totalpoll-choice-checkbox {
+    cursor: pointer;
+    display: block;
+    position: absolute;
+    right: 20px;
+    top: 63px;
+    z-index: 5;
+    @include media(xss) {
+        top: 54px;
+    }
+}
+
+.totalpoll-choice-container {
+    overflow: visible!important;
+    padding: 3.8em 0.8em!important;
+}
+
+.totalpoll-choice-checkbox {
+    display: block!important;
+}
+
+.totalpoll-choice-label {
+    color: transparent!important;
+    background-color: transparent!important;
+    border-color: transparent!important;
+}
+
+.totalpoll-result-text {
+    font-weight: 900!important;
+    font-size: 3em!important;
+}
+.totalpoll-fields{
+    padding: 16px 10px!important;
+    border: 3px solid rgba(255, 255, 255, 0.56)!important;
+    border-radius: 10px;
+    max-width: 1000px;
+    margin: 0 auto!important;
+    margin-top: 35px!important;
+}
+input[type="text"]{
+    color: $color-secondary;
+    background-color: lighten( $color-primary, 20% );
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    border-radius: 5px!important;
+    box-shadow: inset 0 0px 0 transparent;
+    &:hover{
+        background-color: lighten( $color-primary, 50% );
+    }
+}
+input[type="radio"]{
+    &:before {
+        content: "Seleccionar";
+        font-weight: bold;
+        position: absolute;
+        color: white;
+        bottom: -3px;
+        right: 22px;
+        
+    }
+}
+.totalpoll-field-wrapper label {
+    font-size: 1.5em;
+    display: block;
+    margin-bottom: 5px!important;
+    
+}
+.totalpoll-choice-label{
+    padding: 0px!important;
+}
+//.totalpoll-error-message {
+//    padding: 1em;
+//    margin-bottom: 1em;
+//    color:  $color-secondary!important;
+//    background-color: $color-primary!important;
+//    border: 2px solid $color-secondary!important;
+//    border-radius: 0;
+//    position: absolute;
+//    bottom: 25%;
+//    width: 86.3%;
+//    right: 7%;
+//    font-weight: 800;
+//}
+//AJUSTES
+
+.ajuste-right{
+    width: 67%!important;
+    @include media(wvga) {
+        width: 100%!important;
+    }
+    @include media(xss) {
+        width: 120%!important;
+    }
+}
