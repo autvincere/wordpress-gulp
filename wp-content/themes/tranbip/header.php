@@ -26,13 +26,15 @@
 
 <body <?php body_class();?>>
 
-
+    <?php 
+    $logo = get_theme_mod('logo');
+    ?>
    
         <nav class="center-grilla">
                 <h1 class="logo-principal">
                     <figure class="logos-gob">
                         <a class="logs" href="<?php echo home_url(); ?>">
-                            <img class="gob" src="<?php echo IMAGES; ?>/assets/img/transantiago-logo.svg" alt=""/>
+                            <img class="gob" src="<?php echo $logo; ?>" alt="<?php bloginfo('name');?>"/>
                         </a>
                     </figure>
                 </h1>

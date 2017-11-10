@@ -81,4 +81,5 @@ function my_upload_mimes($mimes = array()) {
 require_once('assets/functions/scripts-stylesheets.php');
 require_once('assets/functions/menus.php');
 require_once('assets/functions/footer-widgets.php');
+require_once('assets/functions/theme-customizer.php');
 
