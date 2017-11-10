@@ -12,93 +12,70 @@
  * @package transantiago-theme
  */
 get_header();
-//$lista_de_ganadores = get_field('lista_de_ganadores');
 ?>
-<main class="center-grilla">
-        <div class="owl-carousel owl-theme">
-            
-            <div class="item color-one">             
-                    <div class="one-slider">
-                        <img class="artista" src="<?php echo IMAGES; ?>/assets/img/pslider01.png" alt=""/>
-                    </div>
-                    <div class="two-slider">
-                        <img class="transantiagopresenta" src="<?php echo IMAGES; ?>/assets/img/transantiagopresenta.svg" alt=""/>
-                    </div>
-                <a class="down" href="#bajando">
-                    <span class="icon-icons-04 icon-down"></span>
-                </a>
-                </div>
-           
-            
-            <div class="item color-two">
-                <div class="one-slider">
-                    <img class="artista" src="<?php echo IMAGES; ?>/assets/img/pslider02.png" alt=""/>
-                </div>
-                <div class="two-slider">
-                    <img class="quesuenetu" src="<?php echo IMAGES; ?>/assets/img/quesuenetubip.png" alt=""/>
-                </div>
-                <a class="down" href="#bajando">
-                    <span class="icon-icons-04 icon-down"></span>
-                </a>
-            </div>
-            
-            <div class="item color-three">
-                <div class="one-slider">
-                    <img class="artista" src="<?php echo IMAGES; ?>/assets/img/pslider03.png" alt=""/>
-                </div>
-                <div class="two-slider">
-                    <img class="hand" src="<?php echo IMAGES; ?>/assets/img/manobip.png" alt=""/>
-                    <img class="leyenda" src="<?php echo IMAGES; ?>/assets/img/votaporel.svg" alt=""/>
-                    <h3 class="slider">
 
-                        Le pedimos ayuda a los cantantes urbanos para concientizar sobre los beneficios de que todos paguemos nuestro pasaje. Gana una bip de $ 10.000 votando por tu artista favorito y ayúdalo a ganar $1.000.000.
+<section class="slider center-grilla">
 
-                    </h3>
-                </div>
-                <a class="down" href="#bajando">
-                    <span class="icon-icons-04 icon-down"></span>
-                </a>
-            </div>
-            
-            <div class="item color-four">
-                <div class="one-slider">
-                    <img class="artista" src="<?php echo IMAGES; ?>/assets/img/pslider04.png" alt=""/>
-                </div>
-                <div class="two-slider">
-                    <img class="hand" src="<?php echo IMAGES; ?>/assets/img/manobip.png" alt=""/>
-                    <img class="leyenda" src="<?php echo IMAGES; ?>/assets/img/votaporelmejor.svg" alt=""/>
-                    <h3 class="slider">
+    <!-- slider custom postype -->
 
-                        Porque los cantantes urbanos nos alegran nuestros días, 
-                        le pedimos ayuda para generar conciencia sobre los beneficios de que todos paguemos nuestro pasaje. Gana una bip de $ 10.000 votando por tu artista favorito 
-                        y ayúdalo a ganar $1.000.000.
+    <?php
+    $args = array( 
+        'post_type' => 'slider',
+        'orderby' => 'menu_order',
+        "order" => 'ASC',
+        'posts_per_page'=> -1
+    );
 
-                    </h3>
-                </div>
-                <a class="down" href="#bajando">
-                    <span class="icon-icons-04 icon-down"></span>
-                </a>
-            </div>
-            
-            <div class="item color-five">
-                <div class="one-slider">
-                    <img class="artista" src="<?php echo IMAGES; ?>/assets/img/pslider05.png" alt=""/>
-                </div>
-                <div class="two-slider">
-                    <img class="hand" src="<?php echo IMAGES; ?>/assets/img/manobip.png" alt=""/>
-                    <img class="leyenda" src="<?php echo IMAGES; ?>/assets/img/tuytu.png" alt=""/>
-                    <h3 class="slider">
-                        Le pedimos ayuda a los cantantes urbanos para concientizar sobre los beneficios de que todos paguemos nuestro pasaje. Gana una bip de $ 10.000 votando por tu artista favorito y ayúdalo a ganar $1.000.000.
-                    </h3>
-                </div>
-                <a class="down" href="#bajando">
-                    <span class="icon-icons-04 icon-down"></span>
-                </a>
-            </div>
-            
+    $slider = new WP_Query( $args );
+
+    if ($slider->have_posts() ) : ?>
+
+    <div class="flexslider-container">
+        <div id="catalogo-home" class="flexslider">
+            <ul class="slides">
+                <?php while ($slider->have_posts() ) : $slider->the_post(); 
+
+                // campos slider post-type
+                $titulo_slider = get_field('titulo_slider');
+                $desc_slider = get_field('desc_slider');
+                $texto_btn_slider = get_field('texto_btn_slider');
+                $link_btn_slider = get_field('link_btn_slider');
+                $imagen_slider = get_field('imagen_slider');
+                ?>
+                
+                <li>
+                   <article class="text_slider">
+                      
+                       <h2><?php echo $titulo_slider; ?></h2>   
+                      
+                      
+                       <?php if (get_field('desc_slider') != ''): ?>
+                       <p><?php the_field('desc_slider'); ?></p>  
+                       <?php endif; ?>
+                       
+                       <?php if (get_field('texto_btn_slider') != '' || get_field('link_btn_slider') != ''): ?>
+                       <a href="<?php the_field('link_btn_slider'); ?>"><?php the_field('texto_btn_slider'); ?></a> 
+                       <?php endif; ?>
+                   </article>
+                   
+                    <?php if (get_field('imagen_slider') != ''): ?>
+                    <img src="<?php the_field('imagen_slider'); ?>" /> 
+                    <?php endif; ?>
+                    
+         
+                </li>
+                   
+                    <?php endwhile; wp_reset_postdata(); ?>
+            </ul>
         </div>
-    
-       
+    </div>
+    <?php endif; ?>
+
+    <!-- Cierre slider custom postype -->
+</section>
+
+<main class="center-grilla">
+        
         <section class="plugin">        
            
             <div>
@@ -112,26 +89,11 @@ get_header();
                 ?>
 
             </div>
+            
         </section>
-        <section class="ganadores">
-            <article class="title">
-                <figure>
-                    <img src="<?php echo IMAGES; ?>/assets/img/ganadores-vip.svg" alt="">
-                </figure>
-            </article>
-            <article>
-               <ul class="btn">
-                       <li>
-                           <a href="<?php echo get_site_url(); ?>/wp-content/uploads/2017/08/bases.pdf" class="button" target="_blank">
-                               bases legales!
-                           </a> 
-                       </li>
-               </ul>
-            </article>
-            <section class="lista-ganadores">
-<!--                <?php echo $lista_de_ganadores; ?>-->
-            </article>
-        </section>
+        
+       
+        
     </main>
 <?php
 get_footer();

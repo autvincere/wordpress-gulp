@@ -2,8 +2,10 @@
 
 var gulp = require('gulp'),
     sass = require('gulp-sass'),
-    browserSync = require('browser-sync'),
     autoprefixer = require('gulp-autoprefixer'),
+    notify = require('gulp-notify'),
+    sourcemaps = require('gulp-sourcemaps'),
+    browserSync = require('browser-sync'),
     reload = browserSync.reload;
 
 //Directorios
@@ -21,7 +23,7 @@ var config = {
 // Compilar SASS files
 gulp.task('sass', function () {
     gulp.src(config.scssDir + '/*.scss')
-
+        .pipe(sourcemaps.init())// Se analiza maps, para crear carpeta
         .pipe(sass({
             includedPaths: ['scss']
         }))
@@ -29,9 +31,9 @@ gulp.task('sass', function () {
             browsers: ['> 1%', 'last 60 versions', 'Firefox >= 20', 'ie >= 9'],
             cascade: false
         }))
-        .pipe(
-            gulp.dest(config.cssWordpress)
-        )
+        .pipe(sourcemaps.write('maps')) //se crea carpeta maps, para guardar sourcemaps
+        .pipe(gulp.dest(config.cssWordpress))
+        .pipe(notify({message: 'css tarea completa'}));
 });
 
 
@@ -56,21 +58,9 @@ gulp.task('browserSync', ['sass'], function () {
     'tranbip/*.css'
     ], {
         
-        proxy: "http://localhost:8888/tranbip/",//http://localhost:8888/html_2/
-        // port: 8888,
+        proxy: "http://localhost:8888/tranbip/", 
         browser: "google chrome"
-//        
-//        server: {
-//            baseDir: 'tranbip'
-//        },
-//        startPath: "/index.php"
-        
-//        proxy: "http://localhost/tranbip/"
-//        proxy: '127.0.0.1:8888',
-//        ,port: 8888
-//        open: true,
-//        notify: false,
-//        files: [config.htmlDir + '/*.php']
+
     })
     gulp.watch([config.htmlDir + '/*.php']).on('change', browserSync.reload);;
 });

@@ -79,3 +79,6 @@ function my_upload_mimes($mimes = array()) {
 //Cierre Habilitar la subida de archivos SVG
 
 require_once('assets/functions/scripts-stylesheets.php');
+require_once('assets/functions/menus.php');
+require_once('assets/functions/footer-widgets.php');
+

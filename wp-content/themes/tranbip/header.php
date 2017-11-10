@@ -36,22 +36,18 @@
                         </a>
                     </figure>
                 </h1>
-            </div>
-
+            
+    <!-- Menu principal --------------------------------------------------------------->
             <?php 
-            /* Primary navigation 
             wp_nav_menu( array(
                 'location' => 'menu-principal',
                 'menu' => 'top_menu',
                 'depth' => 2,
                 'container_id' => 'myNavbar',
-                'container_class' => 'collapse navbar-collapse',
-                'menu_class' => 'nav navbar-nav right-forced',
-
-                //Process nav menu using our custom nav walker
-                'walker' => new wp_bootstrap_navwalker())
-                       );
-            */
+                'container_class' => 'navbar',
+                'menu_class' => 'items-right'
+                ));
+            
             ?>
-
+    <!-- Cierre Menu principal ---------------------------------------------------------> 
             </nav>

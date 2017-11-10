@@ -13,6 +13,7 @@ Text Domain: tranbip
 @import "variables";
 @import 'fonts';
 @import 'queries';
+@import 'flexslider';
 @import 'utilidades';
 //Fonts
 @import url('https://fonts.googleapis.com/css?family=Muli:300,400,700,800,900');
@@ -44,14 +45,22 @@ h4 {
 
 p {
     font-size: 14px;
+    color: gray;
+}
+
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
 }
 
 // ESTILOS REUTILIZABLES *******************************************************************
 //***********************************************************************************
 .center-grilla {
-    max-width: $grilla;
-    margin: 0 auto;
-    //    overflow: hidden;
+    width: 1200px;
+    margin: 0 auto; //    overflow: hidden;
 }
 
 // BUTTON DOWN *****************
@@ -60,8 +69,7 @@ a.down {
     cursor: pointer;
     text-decoration: none;
     z-index: 4;
-    position: absolute;
-    //    top: 47%;
+    position: absolute; //    top: 47%;
     z-index: 3;
     right: 46%;
     left: 46%;
@@ -97,8 +105,7 @@ a.down {
         top: 85%;
     }
     @include media(xss) {
-        bottom: 0%;
-        //        top: 207%;
+        bottom: 0%; //        top: 207%;
         right: 40%;
         left: 40%;
         display: none;
@@ -163,8 +170,7 @@ a.social {
 }
 
 .button {
-    background-color: $color-primary;
-    //    border: 1px solid darken( $color-primary, 20%);
+    background-color: $color-primary; //    border: 1px solid darken( $color-primary, 20%);
     color: white;
     width: 181px;
     padding: 6px 4px;
@@ -188,6 +194,35 @@ a.social {
     background-color: $color-primary;
 }
 
+// MENU PRINCIPAL **********************************************************************
+//**************************************************************************************
+.logo-principal {
+    width: 30%;
+    text-align: left;
+    display: inline-block;
+}
+
+.navbar {
+    width: 69.5%;
+    text-align: right;
+    display: inline-block;
+    vertical-align: bottom;
+    margin-bottom: 80px;
+}
+
+.items-right {
+    li {
+        display: inline-block;
+        margin-right: 10px;
+        font-size: 1.2em;
+        &:last-child {
+            margin-right: 0px;
+        }
+    }
+}
+
+// CIERRE MENU PRINCIPAL **********************************************************************
+//**************************************************************************************
 .block {
     height: 189px;
     transition: all 0.7s ease;
@@ -245,81 +280,24 @@ $grilla: 768px;
 //CIERRE grid
 // PERSONALIZACION SLIDER ***********************************************************
 //***********************************************************************************
-.owl-carousel {
-    overflow: -webkit-paged-y;
-}
-
-.owl-carousel .owl-dots.disabled,
-.owl-carousel .owl-nav.disabled {
-    display: block;
-}
-
-.owl-carousel .owl-dot,
-.owl-carousel .owl-nav .owl-next,
-.owl-carousel .owl-nav .owl-prev {
-    padding: 0 2%;
-}
-
-div.owl-next {
-    position: absolute;
-    right: 0%;
-    top: 44%;
-    bottom: 44%;
-    //    transform: translate(44%, -44%);
-    font-size: 0em;
-    &:before {
-        cursor: pointer;
-        font-family: "icomoon";
-        font-size: 3rem;
-        display: inline-block;
-        content: '\e905';
-        color: white;
-        background-color: rgba(255, 255, 255, 0.2);
-        border: 0px solid transparent;
-        border-radius: 50px;
-        transition: all 0.3s ease;
-    }
-    &:hover {
-        &:before {
-            background-color: rgba(255, 255, 255, 0.5);
+section.slider {
+    div.flexslider-container {
+        article.text_slider {
+            position: absolute;
+            top: 38%;
+            /* left: 0%; */
+            padding-left: 18px;
         }
     }
 }
 
-div.owl-prev {
-    @extend div.owl-next;
-    left: 0%;
-    top: 44%;
-    &:before {
-        content: '\e904';
-    }
-}
+
 
 // CIERRE PERSONALIZACION SLIDER ***********************************************************
 //***********************************************************************************
 .center-element {
     margin: 0 auto;
     display: block;
-}
-
-.color-one {
-    background-color: $color-slider-1;
-}
-
-.color-two {
-    background-color: $color-slider-2;
-}
-
-.color-three {
-    background-color: $color-slider-3;
-}
-
-.color-four {
-    background-color: $color-slider-4;
-}
-
-.color-five {
-    background-color: $color-slider-5;
 }
 
 .bajada {
@@ -345,13 +323,13 @@ nav {
     position: relative;
     display: block;
     h1.logo-principal {
-//        a {
-//            img {
-//                width: 100%;
-//                max-width: 200px;
-//                margin-left: 40px;
-//            }
-//        }
+        //        a {
+        //            img {
+        //                width: 100%;
+        //                max-width: 200px;
+        //                margin-left: 40px;
+        //            }
+        //        }
         figure.logos-gob {
             margin-bottom: 13px;
             a.logs {
@@ -373,354 +351,175 @@ nav {
             }
         }
     }
+} // textos forzados artistas *******************************************************************
+//*****************************************************************
+section.plugin {
+    position: relative;
+    figure.parche {
+        display: block;
+        div.left {
+            display: inline-block;
+            width: 48%;
+            text-align: left;
+            p.video {
+                font-size: 1em;
+                font-weight: 800;
+                color: white;
+                display: inline-block;
+                vertical-align: super;
+                text-transform: uppercase;
+                @include media(sm) {
+                    font-size: 0.8em;
+                }
+            }
+        }
+        div.right {
+            display: inline-block;
+            width: 52%;
+            text-align: right;
+            img {
+                display: inline-block;
+                width: 100%;
+                max-width: 293px;
+                vertical-align: sub;
+            }
+        }
+        div.description {
+            display: inline-block;
+            width: 76%;
+            text-align: left;
+            font-weight: 700;
+            @include media(xss) {
+                width: 100%;
+            }
+            @include media(xs) {
+                width: 100%;
+            }
+            strong {
+                //                    text-transform: uppercase;
+            }
+            p {
+                color: white;
+            }
+            p {}
+        }
+        .select {
+            display: inline-block;
+            width: 24%;
+            vertical-align: text-top;
+            text-align: right;
+            p {
+                color: white;
+                text-transform: capitalize;
+                font-weight: 600;
+            }
+        }
+    }
 }
 
-main {
-    margin-top: -85px;
-    @include media(xss) {
-        margin-top: 0px;
-    }
-    @include media(wvga) {
-        margin-top: -85px;
-    }
-    .owl-carousel {
-        position: relative;
-        height: 437px;
-        @include media(xss) {
-            height: 380px;
-        }
-        .item {
-            .one-slider {
-                display: inline-block;
-                width: 41%;
-                vertical-align: top;
-                img.artista {
-                    z-index: 3;
-                    position: relative;
-                    @include media(md) {
-                        width: 110%;
-                    }
-                }
-                @include media(sm) {
-                    //                    width: 40%;
-                }
-                @include media(xs) {
-                    display: none;
-                }
-                @include media(xss) {
-                    display: none;
-                }
+section.ganadores {
+    background-color: $color-secondary;
+    article.title {
+        display: inline-block;
+        width: 49%;
+        text-align: left;
+        figure {
+            img {
+                width: 100%;
+                max-width: 340px;
+                padding: 8px;
             }
-            .two-slider {
+        }
+        @include media(xss) {
+            width: 100%;
+        }
+    }
+    article {
+        display: inline-block;
+        width: 49%;
+        text-align: right;
+        vertical-align: middle;
+        @include media(xss) {
+            width: 100%;
+        }
+        ul.btn {
+            @include media(xss) {
+                margin-top: 20px;
+                text-align: center;
+            }
+            li {
                 display: inline-block;
-                width: 45%;
-                vertical-align: top;
-                img {
-                    &.transantiagopresenta {
-                        margin-top: 24%;
-                        @include media(lg) {
-                            margin-top: 14%;
-                        } @include media(md) {
-                            margin-top: 14%;
-                        }
-                        
-
+                &:first-child {
+                    margin-right: 10px;
+                    @include media(xs) {
+                        margin-right: 0px;
+                        margin-bottom: 15px;
                     }
-                    &.quesuenetu {
-                        margin-top: 5%;
-                        @include media(xss) {
-                            padding-top: 8%;
-                            width: 100%;
-                            margin: 0 auto;
-                        }
-                        @include media(xs) {
-                            padding-top: 17%;
-                            width: 90%;
-                            margin: 0 auto;
-                        }
-                        @include media(sm) {
-                            width: 180%;
-                            margin: 0 auto;
-                        }
-                    }
-                    &.hand {
-                        margin-left: -80px;
-                        z-index: 1;
-                        width: 212px;
-                        display: inline-block;
-                        margin-top: 50px;
-                        @include media(xss) {
-                            display: none;
-                        }
-                        @include media(xs) {
-                            display: none;
-                        }
-                        @include media(md) {
-                            display: none;
-                            margin-left: -20px;
-                            width: 143px;
-                        }
-                    }
-                    &.leyenda {
-                        display: inline-block;
-                        width: 73%;
+                    @include media(xss) {
+                        margin-right: 0px;
                         margin-bottom: 25px;
-                        @include media(xs) {
-                            width: 87%;
-                            display: block;
-                            margin: 0 auto;
-                            margin-top: 6%;
-                        }
-                        @include media(md) {
-                            width: 79%;
-                            margin-top: 30px;
-                            margin-left: 20px;
-                        }
-                    }
-                    @include media(sm) {
-                        //                    width: 40%;
-                    }
-                    @include media(xs) {
-                        width: 90%;
-                        display: block;
-                        margin: 0 auto;
-                        margin-top: 6%;
-                    }
-                    @include media(xss) {}
-                }
-                h3.slider {
-                    text-align: center;
-                    color: white;
-                    font-size: 1em;
-                    margin-top: 22px;
-                    font-weight: 600;
-                    max-width: 360px;
-                    margin: 0 auto;
-                    margin-left: 19%;
-                    @include media(xss) {
-                        max-width: 320px;
-                        margin-left: 0%;
-                        padding: 0 13px;
-                    }
-                    @include media(xs) {
-                        max-width: 322px;
-                        margin-left: 20%;
-                        margin: 0 auto;
-                        margin-top: 30px;
-                    }
-                    @include media(sm) {
-                        margin-left: 20%;
-                        color: red;
-                    }
-                    @include media(lg) {
-                        margin-left: 24%;
-                        max-width: 455px;
                     }
                 }
-                @include media(lg) {
-                    width: 56%;
-                }
-                @include media(md) {
-                    width: 56%;
-                }
-                @include media(sm) {
-                    width: 56%;
-                }
-                @include media(xs) {
-                    width: 100%;
-                }
-                @include media(xss) {
-                    width: 90%;
-                    margin: 0 auto;
-                    margin-top: 20px;
-                }
-            }
-            .three-slider {
-                display: inline-block;
-                width: 35%;
-                text-align: right;
-                img {}
-                @include media(sm) {
-                    display: none;
-                }
-                @include media(xs) {
-                    display: none;
-                }
-                @include media(xss) {
-                    display: none;
-                }
+                a {}
             }
         }
     }
-    // textos forzados artistas *******************************************************************
-    //*****************************************************************
-    .ajuste-top {
+    section.lista-ganadores {
+        margin: 0 auto;
+        width: 75%;
+        text-align: left;
+        color: white;
+        font-weight: 600;
+        padding: 43px 0px;
+        padding-left: 52px;
         @include media(xss) {
-            margin-top: 20px;
+            padding-left: 0px;
         }
-        @include media(md) {
-            margin-top: 5px;
+        @include media(xs) {
+            padding-left: 0px;
         }
-        @include media(lg) {
-            margin-top: 10px;
-        }
-    }
-    section.plugin {
-        position: relative;
-        figure.parche {
-            display: block;
-            div.left {
+        ul {
+            font-size: 1em;
+            font-weight: 500;
+            display: inline-block;
+            width: 100%;
+            li {
+                width: 49%;
                 display: inline-block;
-                width: 48%;
-                text-align: left;
-                p.video {
-                    font-size: 1em;
-                    font-weight: 800;
-                    color: white;
-                    display: inline-block;
-                    vertical-align: super;
-                    text-transform: uppercase;
-                    @include media(sm) {
-                        font-size: 0.8em;
-                    }
-                }
-            }
-            div.right {
-                display: inline-block;
-                width: 52%;
-                text-align: right;
-                img {
-                    display: inline-block;
-                    width: 100%;
-                    max-width: 293px;
-                    vertical-align: sub;
-                }
-            }
-            div.description {
-                display: inline-block;
-                width: 76%;
-                text-align: left;
-                font-weight: 700;
+                margin: 8px 0px;
                 @include media(xss) {
                     width: 100%;
                 }
                 @include media(xs) {
                     width: 100%;
                 }
-                strong {
-                    //                    text-transform: uppercase;
-                }
-                p {
-                    color: white;
-                }
-                p {}
-            }
-            .select {
-                display: inline-block;
-                width: 24%;
-                vertical-align: text-top;
-                text-align: right;
-                p {
-                    color: white;
-                    text-transform: capitalize;
-                    font-weight: 600;
-                }
             }
         }
-    }
-    section.ganadores {
-        background-color: $color-secondary;
-        article.title {
-            display: inline-block;
-            width: 49%;
-            text-align: left;
-            figure {
-                img {
-                    width: 100%;
-                    max-width: 340px;
-                    padding: 8px;
-                }
-            }
-            @include media(xss) {
-                width: 100%;
-            }
+        @include media(xss) {
+            text-align: center;
         }
-        article {
-            display: inline-block;
-            width: 49%;
-            text-align: right;
-            vertical-align: middle;
-            @include media(xss) {
-                width: 100%;
-            }
-            ul.btn {
-                @include media(xss) {
-                    margin-top: 20px;
-                    text-align: center;
-                }
-                li {
-                    display: inline-block;
-                    &:first-child {
-                        margin-right: 10px;
-                        @include media(xs) {
-                            margin-right: 0px;
-                            margin-bottom: 15px;
-                        }
-                        @include media(xss) {
-                            margin-right: 0px;
-                            margin-bottom: 25px;
-                        }
-                    }
-                    a {}
-                }
-            }
-        }
-        section.lista-ganadores {
-            margin: 0 auto;
-            width: 75%;
-            text-align: left;
-            color: white;
-            font-weight: 600;
-            padding: 43px 0px;
-            padding-left: 52px;
-            @include media(xss) {
-                padding-left: 0px;
-            }
-            @include media(xs) {
-                padding-left: 0px;
-            }
-            ul {
-                font-size: 1em;
-                font-weight: 500;
-                display: inline-block;
-                width: 100%;
-                li {
-                    width: 49%;
-                    display: inline-block;
-                    margin: 8px 0px;
-                    @include media(xss) {
-                        width: 100%;
-                    }
-                    @include media(xs) {
-                        width: 100%;
-                    }
-                }
-            }
-            @include media(xss) {
-                text-align: center;
-            }
-            @include media(xs) {
-                text-align: center;
-            }
+        @include media(xs) {
+            text-align: center;
         }
     }
 }
 
 footer {
-    background-color: $color-primary;
+    background-color: #c3c3c3;
     height: 80px;
     font-size: 0.9em;
     font-weight: 600;
+    height: auto;
+    padding: 10px 0px;
+    .inline-percent {
+        @include inline-percent(24.7%,
+        left);
+    }
+    .adjust-inline {
+        @include inline-percent(13%,
+        left);
+    }
+
     figure.logos-gob {
         width: 21%;
         display: inline-block;
@@ -731,8 +530,7 @@ footer {
         @include media(xs) {
             width: 100%;
             text-align: center;
-        }
-        //        img {
+        } //        img {
         //            width: 100%;
         //            max-width: 150px;
         //            margin-left: 40px;
@@ -770,7 +568,6 @@ footer {
         vertical-align: top;
         text-align: center;
         color: $color-secondary;
-        padding-top: 24px;
         p {
             display: inline-block;
         }
@@ -821,189 +618,3 @@ footer {
 
 // CIERRE ESTRUCTURA WEB *******************************************************************
 //***********************************************************************************
-// ESTILOS PLUGIN TOTAL POLL ***********************************************************************************
-#totalpoll-id-04bc89a1778238dc8319509fa5b92d48.totalpoll-poll-container .totalpoll-choices-row .totalpoll-choice-container .totalpoll-choice-media a img {
-    max-width: 100%;
-    padding: 0.3em!important;
-    display: block;
-    margin: 0 auto;
-    border-top-right-radius: 0;
-    border-top-left-radius: 0;
-}
-
-#totalpoll-id-04bc89a1778238dc8319509fa5b92d48.totalpoll-poll-container .totalpoll-choices-row .totalpoll-choice-container .totalpoll-choice-label {
-    padding: 0.95em;
-    border: 0px solid transparent!important;
-    margin-top: -1px;
-    background: $color-primary;
-    text-align: center;
-    color: inherit;
-    border-bottom-right-radius: 0;
-    border-bottom-left-radius: 0;
-    cursor: pointer;
-    display: block;
-    padding: 0;
-}
-
-#totalpoll-id-04bc89a1778238dc8319509fa5b92d48.totalpoll-poll-container .totalpoll-view-results .totalpoll-choice-label .totalpoll-result-text {
-    font-size: 0.9em !important;
-    font-weight: normal;
-    font-weight: 900;
-    background-image: url(../assets/img/bkg-bip.jpg);
-    //    background-color: blue;
-    padding: 10px 21px!important;
-    position: absolute!important;
-    top: -43px!important;
-    left: -12px!important;
-}
-
-.totalpoll-result-text {
-    font-size: 3em !important;
-    font-weight: normal;
-    font-weight: 900;
-    //    background-image: url(assets/img/bkg-bip.jpg)!important;
-    //    background-color: blue!important;
-    //    padding: 5px 10px!important;
-    position: absolute!important;
-    top: -43px!important;
-    left: -12px!important;
-    color: white!important;
-    //    background-repeat: no-repeat, no-repeat;
-    //    background-position: 56% 5px;
-    background-color: $color-secondary!important;
-    width: 56px;
-    height: 36px;
-    &:after {
-        content: "votos";
-        color: white;
-        font-weight: bold;
-        margin-right: 5px;
-        display: block;
-    }
-    &:before {
-        font-family: 'TSInfo';
-        content: "!";
-        color: white;
-        font-weight: bold;
-        position: absolute;
-        display: block;
-        font-size: 3em;
-        right: -1px;
-        bottom: -3px;
-        transform: rotate(11deg);
-        top: -10px;
-        color: orange;
-    }
-}
-
-.totalpoll-choice-label {
-    position: relative;
-}
-
-.totalpoll-choice-checkbox {
-    cursor: pointer;
-    display: block;
-    position: absolute;
-    right: 20px;
-    top: 63px;
-    z-index: 5;
-    @include media(xss) {
-        top: 80px;
-    }
-}
-
-.totalpoll-choice-container {
-    overflow: visible!important;
-    padding: 3.8em 0.8em!important;
-}
-
-.totalpoll-choice-checkbox {
-    display: block!important;
-}
-
-.totalpoll-choice-label {
-    color: transparent!important;
-    background-color: transparent!important;
-    border-color: transparent!important;
-}
-
-.totalpoll-result-text {
-    font-weight: 900!important;
-    font-size: 3em!important;
-}
-
-.totalpoll-fields {
-    padding: 16px 10px!important;
-    border: 3px solid rgba(255, 255, 255, 0.56)!important;
-    border-radius: 10px;
-    max-width: 1000px;
-    margin: 0 auto!important;
-    margin-top: 35px!important;
-}
-
-input[type="text"] {
-    color: $color-secondary;
-    background-color: lighten( $color-primary, 20%);
-    border: 2px solid rgba(255, 255, 255, 0.8);
-    border-radius: 5px!important;
-    box-shadow: inset 0 0px 0 transparent;
-    &:hover {
-        background-color: lighten( $color-primary, 50%);
-    }
-}
-
-input[type="radio"] {
-    &:before {
-        content: "Seleccionar";
-        font-weight: bold;
-        position: absolute;
-        color: white;
-        bottom: -3px;
-        right: 22px;
-    }
-}
-
-.totalpoll-field-wrapper label {
-    font-size: 1.5em;
-    display: block;
-    margin-bottom: 5px!important;
-}
-
-.totalpoll-choice-label {
-    padding: 0px!important;
-}
-
-//.totalpoll-error-message {
-//    padding: 1em;
-//    margin-bottom: 1em;
-//    color:  $color-secondary!important;
-//    background-color: $color-primary!important;
-//    border: 2px solid $color-secondary!important;
-//    border-radius: 0;
-//    position: absolute;
-//    bottom: 25%;
-//    width: 86.3%;
-//    right: 7%;
-//    font-weight: 800;
-//}
-//AJUSTES
-.ajuste-right {
-    width: 67%!important;
-    @include media(wvga) {
-        width: 100%!important;
-    }
-    @include media(xss) {
-        width: 120%!important;
-    }
-}
-
-div.alert-choice {
-    text-align: center !important;
-    border: 2px solid #007cc9 !important;
-    border-radius: 10px !important;
-    padding: 21px 0 !important;
-    color: #007cc9 !important;
-    background-color: rgb(253, 185, 19) !important;
-    font-weight: 800!important;
-    font-family: "Muli", Helvetica, Arial, sans-serif !important;
-}

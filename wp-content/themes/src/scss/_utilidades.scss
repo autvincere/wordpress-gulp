@@ -13,6 +13,12 @@
         @content
             }
 }
+
+@mixin inline-percent($percentage,$align) {
+    display: inline-block;
+    width: $percentage;
+    text-align: $align;
+}
 // Estilos input
 //colorear input
 //input[type='radio'] {
