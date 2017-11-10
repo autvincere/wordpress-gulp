@@ -850,13 +850,11 @@ footer {
     width: 53%;
     display: inline-block;
     vertical-align: top;
-    text-align: center;
-    color: #007cc9; }
+    text-align: center; }
     footer article p {
       display: inline-block; }
     footer article a {
       margin-left: 5px;
-      color: #007cc9;
       text-decoration: none;
       display: inline-block;
       font-size: 0.9em; }
