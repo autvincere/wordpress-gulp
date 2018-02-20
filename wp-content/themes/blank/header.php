@@ -7,6 +7,7 @@
     <meta name="author" content="Eduardo Palma">
     <meta name="Title" content="template de prueba">
     <meta name="Description" content="esto es un template de prueba para conectar wordpress con gulp">
+    <meta name="keywords" CONTENT="RECASUR ,Patagonia,patagonia,Patagonian,patagonia chile,chilean patagonia,Chilean Patagonia,,Estrecho de Magallanes,Magellanic,Magellan,Cabo de Hornos,">
     <meta name="Robots" content="All">
     
     <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />

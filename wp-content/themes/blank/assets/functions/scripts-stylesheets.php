@@ -2,7 +2,7 @@
 //-------------------------------------------
 //Funcion carga de estilos
 //-------------------------------------------
-function tranbip_load_styles() {    
+function blank_load_styles() {    
 
     wp_register_style(
         'theme_style',
@@ -15,13 +15,13 @@ function tranbip_load_styles() {
     
     wp_enqueue_style('theme_style');
 }
-add_action('wp_enqueue_scripts','tranbip_load_styles');
+add_action('wp_enqueue_scripts','blank_load_styles');
 
 
 //-------------------------------------------
 //Funcion carga de scripts
 //-------------------------------------------
-function tranbip_load_scripts() {
+function blank_load_scripts() {
 
     wp_register_script(
         'flexslider', THEMEROOT . '/assets/js/libs/jquery.flexslider-min.js', array('jquery'),'2.6.3', false);
@@ -35,15 +35,15 @@ function tranbip_load_scripts() {
 //
 }
 
-add_action('wp_enqueue_scripts','tranbip_load_scripts');
+add_action('wp_enqueue_scripts','blank_load_scripts');
 
 
 
 //Funcion para cargar archivos compatibilidad explorer
-function tranbip_js_conditional(){
+function blank_js_conditional(){
 ?>
 <!--[if lt IE 9]><script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script><script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script><![endif]-->
 <?php  
 }
-add_action('wp_head','tranbip_js_conditional');
+add_action('wp_head','blank_js_conditional');
 ?>

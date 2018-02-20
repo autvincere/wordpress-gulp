@@ -11,12 +11,12 @@ var gulp = require('gulp'),
 //Directorios
 var config = {
     scssDir: 'src/scss',
-    cssDir: 'tranbip/assets/css',
-    jsDir: 'tranbip/assets/js',
-    functionDir: 'tranbip/assets/functions',
-    imgDir: 'tranbip/assets/img',
-    htmlDir: 'tranbip',
-    cssWordpress: 'tranbip'
+    cssDir: 'blank/assets/css',
+    jsDir: 'blank/assets/js',
+    functionDir: 'blank/assets/functions',
+    imgDir: 'blank/assets/img',
+    htmlDir: 'blank',
+    cssWordpress: 'blank'
 };
 
 
@@ -51,14 +51,14 @@ gulp.task('php', function () {
 // local
 gulp.task('browserSync', ['sass'], function () {
     browserSync.init([
-    'tranbip/assets/css/*.css',
-    'tranbip/assets/js/*.js',
-    'tranbip/assets/functions/*.php',
-    'tranbip/*.php',
-    'tranbip/*.css'
+        'blank/assets/css/*.css',
+        'blank/assets/js/*.js',
+        'blank/assets/functions/*.php',
+        'blank/*.php',
+        'blank/*.css'
     ], {
         
-        proxy: "http://localhost:8888/tranbip/", 
+        proxy: "http://localhost:8888/blank/", 
         browser: "google chrome"
 
     })

@@ -16,7 +16,7 @@
 
 // ** Ajustes de MySQL. Solicita estos datos a tu proveedor de alojamiento web. ** //
 /** El nombre de tu base de datos de WordPress */
-define('DB_NAME', 'wordpress-gulp');
+define('DB_NAME', 'blank');
 
 /** Tu nombre de usuario de MySQL */
 define('DB_USER', 'root');
@@ -28,7 +28,7 @@ define('DB_PASSWORD', 'root');
 define('DB_HOST', 'localhost');
 
 /** Codificación de caracteres para la base de datos. */
-define('DB_CHARSET', 'utf8mb4');
+define('DB_CHARSET', 'utf8_general_ci');
 
 /** Cotejamiento de la base de datos. No lo modifiques si tienes dudas. */
 define('DB_COLLATE', '');

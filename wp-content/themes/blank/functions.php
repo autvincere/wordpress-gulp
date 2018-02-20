@@ -2,10 +2,10 @@
 /*
 Archivo de Funciones
 Author: Eduardo Palma López
-Author URI: http://www.trendingchile.cl/
-* Description: este archivo maneja las funcionesdel tema importando distintos archivos
+Author URI: http://www.motiondesign.cl/
+* Description: este archivo maneja las funciones del tema importando distintos archivos
 * Summary (no period for file headers)
-* @package millaman-tema-base
+* @package blank Theme
 
 * @since 1.0
 */
@@ -27,7 +27,7 @@ if ( ! isset( $content_width ) )
     $content_width = 1200;
 
 // Register Theme Features
-function millaman_theme_features()  {
+function blank_theme_features()  {
 
     // Add theme support for Automatic Feed Links
     add_theme_support( 'automatic-feed-links' );
@@ -60,9 +60,9 @@ function millaman_theme_features()  {
     add_editor_style( 'editor-style.css' );
 
     // Add theme support for Translation
-    load_theme_textdomain( 'millaman', get_template_directory() . '/language' );
+    load_theme_textdomain( 'blank', get_template_directory() . '/language' );
 }
-add_action( 'after_setup_theme', 'millaman_theme_features' );
+add_action( 'after_setup_theme', 'blank_theme_features' );
 
 
 
